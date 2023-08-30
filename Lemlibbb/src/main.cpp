@@ -23,6 +23,7 @@ void initialize() {
             pros::delay(10);
         }
     });
+    triballcontrol::initialize();
 }
 
 /**
@@ -70,5 +71,30 @@ void competition_initialize() {}
  * task, not resume it from where it left off.
  */
 void opcontrol() { 
+
+    while(true){
+
+        //driver control
+        chassis.curvature(master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y),master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X) );
+
+        //other controls
+        if(master.get_digital(pros::E_CONTROLLER_DIGITAL_L1)){
+            triballcontrol::fireCata();
+            pros::delay(100);
+        } else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)){
+            triballcontrol::intakewithoptical();
+        } else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)){
+            triballcontrol::outtake();
+        } else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_X)){
+            triballcontrol::intake();
+        } else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_Y)){
+            triballcontrol::outtake();
+        } 
+
+        //pneumatics
+        if(master.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)){
+            wings.set_value(1);
+        }
+    }
    
  }

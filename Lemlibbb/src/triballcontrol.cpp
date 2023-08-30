@@ -125,6 +125,7 @@ void cataUpdater() {
     
     void triballcontrol::initialize() {
     // prevent tomfoolery with the task being initialized twice
+    wings.set_value(0);
     if (cataTask == nullptr) cataTask = new pros::Task([=]() { cataUpdater(); });
 }
 
