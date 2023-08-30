@@ -1,5 +1,5 @@
 #include "autons.hpp"
-#include "../static/path.txt"
+
 
 
 void skills(){
