@@ -11,10 +11,12 @@ pros::Controller master(CONTROLLER_MASTER);
 
 
 // drive motors
-pros::Motor lF(-9, pros::E_MOTOR_GEARSET_06); // left front motor. port 9, reversed
-pros::Motor lB(-21, pros::E_MOTOR_GEARSET_06); // left back motor. port 21, reversed
-pros::Motor rF(12, pros::E_MOTOR_GEARSET_06); // right front motor. port 12
-pros::Motor rB(16, pros::E_MOTOR_GEARSET_06); // right back motor. port 16
+pros::Motor lF(-15, pros::E_MOTOR_GEARSET_06); // left front motor. port 9, reversed
+pros::Motor lM(-2, pros::E_MOTOR_GEARSET_06); // left front motor. port 9, reversed
+pros::Motor lB(-1, pros::E_MOTOR_GEARSET_06); // left back motor. port 21, reversed
+pros::Motor rF(4, pros::E_MOTOR_GEARSET_06); // right front motor. port 12
+pros::Motor rM(5, pros::E_MOTOR_GEARSET_06); // left front motor. port 9, reversed
+pros::Motor rB(6, pros::E_MOTOR_GEARSET_06); // right back motor. port 16
 
 //additional motors
 pros::Motor cata(7,true);
@@ -29,8 +31,8 @@ pros::ADIDigitalOut intakepist('F');
 pros::ADIDigitalOut blockers('A');
 
 // motor groups
-pros::MotorGroup leftMotors({lF, lB}); // left motor group
-pros::MotorGroup rightMotors({rF, rB}); // right motor group
+pros::MotorGroup leftMotors({lF, lM, lB}); // left motor group
+pros::MotorGroup rightMotors({rF, rM, rB}); // right motor group
 
 // Inertial Sensor on port 11
 pros::Imu imu(14);
