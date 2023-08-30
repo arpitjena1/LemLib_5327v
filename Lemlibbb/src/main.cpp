@@ -81,14 +81,22 @@ void opcontrol() {
         if(master.get_digital(pros::E_CONTROLLER_DIGITAL_L1)){
             triballcontrol::fireCata();
             pros::delay(100);
+            
         } else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)){
             triballcontrol::intakewithoptical();
+            pros::delay(100);
+
         } else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)){
             triballcontrol::outtake();
+            pros::delay(100);
+
         } else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_X)){
             triballcontrol::intake();
+            pros::delay(100);
+
         } else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_Y)){
             triballcontrol::outtake();
+            pros::delay(100);
         } 
 
         //pneumatics
